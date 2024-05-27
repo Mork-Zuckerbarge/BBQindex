@@ -1,0 +1,34 @@
+//**Primary Hypothesis: The existence of five interconnected liquidity pools enables more arbitrage activities, which in turn reduce price discrepancies faster than in isolated single-pool systems, and creates automatic volume with any price change.
+Objective: Introduce the "BBQ Index" as a measure of price stability enhanced by arbitrage across multiple liquidity pools.**
+
+**Definitions and Assumptions**
+Liquidity Pools: Let (P1,P2,P3,P4,P5) represent the prices of the same asset in five different liquidity pools.
+Volume of Asset: Let (V1,V2,V3,V4,V5) be the volumes of the asset in these pools, which affect the impact of a trade on the pool's price.
+Arbitrage Force (A): Defined as the influence on price equalization exerted by arbitrageurs. It is proportional to the price difference and inversely proportional to the transaction resistance (e.g., fees, slippage).
+
+
+
+**Basic Model for Arbitrage Impact**
+Assuming arbitrage is the primary force driving the prices in each pool towards a common value, we can model the rate of change of the price in each pool due to arbitrage. The differential for the price in each pool 
+P_i can be modeled as://
+
+\frac{dP_i}{dt} = k \sum_{j=1}^5 \frac{V_j}{V_i} (P_j - P_i)
+
++//\frac{dP_i}{dt} = is the rate of change of price in the 𝑖-th pool.
++k = a constant of proportionality that includes factors: 1.responsiveness_of_the_market and 2.arbitrageur_activity.
++\frac{V_j}{V_i} = adjustment of influence by the relative sizes of the pools, assuming that price impact is inversely proportional to the volume of the pool.
++(P_j - P_i) = the price difference driving the arbitrage.
+
+
+
+//**The BBQ Index Formula**
+The "BBQ Index" can then be formulated as a function of the variances of these rates of change, providing a measure of how quickly and effectively prices are stabilized across pools.
+The BBQ Index calculates the root mean square of the rate of price changes across the five pools, offering a single metric to gauge the overall volatility due to price differences being arbitrated.//
+
+\text{BBQ Index} = \sqrt{\frac{1}{5} \sum_{i=1}^5 \left(\frac{dP_i}{dt}\right)^2}
+
+//This index essentially measures the standard deviation of the price change rates across the pools. A lower BBQ Index indicates higher stability (less variance in price changes due to effective arbitrage), while a higher index suggests more volatility and less effective arbitrage activity.
+
+**Interpretation**
+A lower BBQ Index value indicates that the prices across different liquidity pools are quickly converging, suggesting effective arbitrage that stabilizes the prices.
+A higher BBQ Index value indicates significant discrepancies in how prices are adjusting across pools, suggesting inefficiencies or obstacles in arbitrage processes.//
